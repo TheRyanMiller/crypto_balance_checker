@@ -1,9 +1,12 @@
 {
-  "name": "react-complte-guide",
+  "name": "crypto_balance_checker",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "express": "^4.16.2",
+    "kerberos": "^2.0.33 ",
+    "mongodb": "^3.0.1",
     "radium": "^0.19.6",
     "react": "^16.2.0",
     "react-bootstrap": "^0.31.5",

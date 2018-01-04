@@ -4,7 +4,7 @@ import CoinImgHolder from './Coin_img_holder';
 
 const coinTile = (props) =>{
   return (
-    <div>
+    <div onClick={props.click}>
       <CoinImgHolder coin={props.coin}/>
     </div>
   )

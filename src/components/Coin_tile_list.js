@@ -8,7 +8,7 @@ const coinTileList = (props) =>{
         <CoinTile
           coin={coin}
           change={(e) => props.changed(e,coin.id)}
-          click={() => props.clicked(index)}
+          click={() => props.click(coin.id)}
           key={coin.id}
           />
       )

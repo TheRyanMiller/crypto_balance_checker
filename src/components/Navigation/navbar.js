@@ -1,5 +1,5 @@
 import React from 'react';
-import Bootstrap from 'react-bootstrap';
+//import Bootstrap from 'react-bootstrap';
 
 const navbar = (props) =>{
   return(
@@ -11,18 +11,18 @@ const navbar = (props) =>{
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
           </button>
-          <a className="navbar-brand" href="#">Logo</a>
+          <a className="navbar-brand" href="https://google.com">Logo</a>
         </div>
         <div className="collapse navbar-collapse" id="myNavbar">
           <ul className="nav navbar-nav">
         {/* use className=active to make list item active  */}
-            <li><a href="#">My Portfolio  </a></li>
-            <li><a href="#">Coin List  </a></li>
-            <li><a href="#">Settings  </a></li>
-            <li><a href="#">Contact  </a></li>
+            <li><a href="https://google.com">My Portfolio  </a></li>
+            <li><a href="https://google.com">Coin List  </a></li>
+            <li><a href="https://google.com">Settings  </a></li>
+            <li><a href="https://google.com">Contact  </a></li>
           </ul>
           <ul className="nav navbar-nav navbar-right">
-            <li><a href="#"><span className="glyphicon glyphicon-user"></span> Your Account</a></li>
+            <li><a href="https://google.com"><span className="glyphicon glyphicon-user"></span> Your Account</a></li>
           </ul>
         </div>
       </div>
