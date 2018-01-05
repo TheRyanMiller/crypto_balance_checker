@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Navbar from '../components/Navigation/navbar';
 import MyPortfolio from './MyPortfolio';
+import Mongo from 'mongodb';
 
 class App extends Component {
   constructor(props){
@@ -20,15 +21,35 @@ class App extends Component {
   addressAdd = (addressVal,coinId) =>{
     console.log("AddressAdd1: ",addressVal);
     console.log("AddressAdd2: ",coinId);
+
     if (addressVal !== "") {
       let coinIdx = this.state.portfolioCoins.findIndex(c=>{
         return c.id === coinId;
       });
+      let i =0;
+      this.state.portfolioCoins[coinIdx].addresses.map(a=>{
+        a.key=""+i++;
+      })
+      let newIdx = this.state.portfolioCoins[coinIdx].addresses.length+"";
       let newPortfolioCoins = [...this.state.portfolioCoins];
-      newPortfolioCoins[coinIdx].addresses.push(addressVal);
-      this.setState({portfolioCoins : newPortfolioCoins})
+      newPortfolioCoins[coinIdx].addresses.push({key: newIdx,address: addressVal});
+      this.setState({portfolioCoins : newPortfolioCoins});
     }
     console.log("NEW STATE: ",this.state.portfolioCoins);
+  }
+
+  addressDelete = (deletedAddress,coinId) =>{
+    console.log("CLICKE DELETE addressIDX="+addressIdx+" coindID="+coinId);
+    let addressIdx = 0;
+    let coinIdx = this.state.portfolioCoins.findIndex(c=>{
+      return c.id === coinId;
+    });
+    let newPortfolioCoins = [...this.state.portfolioCoins];
+    addressIdx = newPortfolioCoins[coinIdx].addresses.findIndex(a=>{
+      return a.address===deletedAddress;
+    });
+    newPortfolioCoins[coinIdx].addresses.splice(addressIdx,1);
+    this.setState({portfolioCoins : newPortfolioCoins})
   }
 
   render() {
@@ -39,6 +60,7 @@ class App extends Component {
         <MyPortfolio
           coins={this.state.portfolioCoins}
           addressAdd={this.addressAdd}
+          addressDelete={this.addressDelete}
           />
       </div>
     );

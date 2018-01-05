@@ -11,7 +11,7 @@ class CoinDetails extends Component {
 
   render() {
     return (
-      <div>
+      <div className="CoinDetailsDiv">
         <h1>{this.props.coin.name}</h1>
         <AddressAdder
           addressAdd={this.props.addressAdd}
@@ -19,6 +19,7 @@ class CoinDetails extends Component {
           />
         <AddressList
           coin={this.props.coin}
+          addressDelete={this.props.addressDelete}
         />
       </div>
     );

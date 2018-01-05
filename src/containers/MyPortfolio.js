@@ -58,6 +58,7 @@ class MyPortfolio extends Component {
         <CoinDetails
           coin={this.state.selectedCoin}
           addressAdd={this.props.addressAdd}
+          addressDelete={this.props.addressDelete}
         />
       )
     }
