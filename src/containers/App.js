@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import Navbar from '../components/Navigation/navbar';
 import MyPortfolio from './MyPortfolio';
-import Mongo from 'mongodb';
 
 class App extends Component {
   constructor(props){
