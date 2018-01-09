@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import CoinTileList from '../components/Coin_tile_list';
 import CoinDetails from '../components/Coin_detail';
-//import Axios from 'axios';
+import Modal from 'react-responsive-modal';
 
 class MyPortfolio extends Component {
   constructor(props){
     super(props);
     this.state = {
       showCoinDetails: false,
-      selectedCoin: null
+      selectedCoin: null,
+      showModal: false
 
     }
   }
@@ -40,33 +41,35 @@ class MyPortfolio extends Component {
     coins[coinIdx] = coin;
     this.setState({
       selectedCoin:coin,
-      showCoinDetails:true}
-    );
+      showCoinDetails:false,
+      showModal: true
+    });
+  }
+
+  handleModalClose = () =>{
+    this.setState({showModal:false});
   }
 
   render() {
     let portfolioDisplay = null;
-    if(this.state.showCoinDetails===false){
-      portfolioDisplay = (
-        <CoinTileList
-          coins={this.props.coins}
-          click={this.selectCoinHandler}
-        />)
-    }
-    else{
-      portfolioDisplay = (
+
+    return (
+      <div>
+        <h1>My Portfolio</h1>
+        <Modal
+          open={this.state.showModal}
+          onClose={this.handleModalClose}
+        >
         <CoinDetails
           coin={this.state.selectedCoin}
           addressAdd={this.props.addressAdd}
           addressDelete={this.props.addressDelete}
         />
-      )
-    }
-
-    return (
-      <div>
-        <h1>My Portfolio</h1>
-        {portfolioDisplay}
+        </Modal>
+        <CoinTileList
+          coins={this.props.coins}
+          click={this.selectCoinHandler}
+        />
       </div>
     );
   }

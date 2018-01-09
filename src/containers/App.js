@@ -17,10 +17,9 @@ class App extends Component {
     }
   }
 
-  addressAdd = (addressVal,coinId) =>{
-    console.log("AddressAdd1: ",addressVal);
-    console.log("AddressAdd2: ",coinId);
-
+  addressAdd = (input,coinId) =>{
+    let addressVal = input.value;
+    input.value="";
     if (addressVal !== "") {
       let coinIdx = this.state.portfolioCoins.findIndex(c=>{
         return c.id === coinId;
@@ -34,11 +33,9 @@ class App extends Component {
       newPortfolioCoins[coinIdx].addresses.push({key: newIdx,address: addressVal});
       this.setState({portfolioCoins : newPortfolioCoins});
     }
-    console.log("NEW STATE: ",this.state.portfolioCoins);
   }
 
   addressDelete = (deletedAddress,coinId) =>{
-    console.log("CLICKE DELETE addressIDX="+addressIdx+" coindID="+coinId);
     let addressIdx = 0;
     let coinIdx = this.state.portfolioCoins.findIndex(c=>{
       return c.id === coinId;

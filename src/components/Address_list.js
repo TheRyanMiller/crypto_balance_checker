@@ -3,7 +3,6 @@ import './Address_list.css';
 
 const addressList = (props) =>{
 
-  console.log("about to iterate",props.coin)//,props.coin.addresses)
   let addressItems = null;
   let i=0;
   if(props.coin!==undefined){
